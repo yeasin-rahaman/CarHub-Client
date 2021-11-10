@@ -1,0 +1,65 @@
+[
+  {
+    "key": 1,
+    "img": "https://i.ibb.co/58Pqknm/giant-90441.jpg",
+    "name": "Pattaya-Bangkok Tour for 6 Days and 5 Nights",
+    "price": 255,
+    "desc": "Package includes visa, return air ticket, buffet breakfast, 3-star hotel accommodation, sightseeing, transport, all taxes, guide service."
+  },
+  {
+    "key": 2,
+    "img": "https://i.ibb.co/x2pgckD/giant-84227.jpg",
+    "name": "Bangkok 3 Days 2 Nights Holiday Tour Package",
+    "price": 55,
+    "desc": "Accommodation in 3 star hotel or similar, everyday American buffet breakfast, half day city tour in Bangkok, return airport transfer, gems gallery shopping tour."
+  },
+  {
+    "key": 3,
+    "img": "https://i.ibb.co/qg3Q9LV/giant-59332.jpg",
+    "name": "Maldives Paradise Island Resort 4 Days 3 Nights Tour Package",
+    "price": 55,
+    "desc": "Maldives Paradise Island Resort 4 days 3 nights tour package has 3 nights in 3 star beach view hotel, full day trip to Paradise Island Resort, Male city tour by boat and walk, everyday breakfast in hotel, return airport transport and return resort transport."
+  },
+  {
+    "key": 4,
+    "img": "https://i.ibb.co/N6m4BtR/care-6.png",
+    "name": "Internal Medicine",
+    "price": 55,
+    "desc": "Internal medicine or general internal medicine is the medical specialty dealing with the prevention, diagnosis, and treatment of internal diseases. Physicians specializing in internal medicine are called internists, or physicians in Commonwealth nations."
+  },
+  {
+    "key": 5,
+    "img": "https://i.ibb.co/PtYSbXR/CREATOR-gd-jpeg-v1-0-using-IJG-JPEG-v80-quality-100.jpg",
+    "name": "3 Day 2 Night Dhaka to Cox's Bazar Tour with Air Ticket",
+    "price": 99,
+    "desc": "Dhaka - Cox's Bazar 3 days 2 nights travel package. Package includes Dhaka – Cox’s Bazar – Dhaka by Air tickets. 2 nights twin accommodation at the hotel. A breakfast facility will be provided at the hotel."
+  },
+  {
+    "key": 6,
+    "img": "https://i.ibb.co/RPc3ZVT/giant-13255.jpg",
+    "name": "Sundarban Tour Package from Khulna",
+    "price": 55,
+    "desc": "Khulna-Sundarban-Khulna 2 night 3 days travel package. Lets see what's service will provide you - Two well trained forest guards from Govt.of forest department are engaged for safety. Experienced Sundarban tourist guide for all time directions.."
+  },
+  {
+    "key": 7,
+    "img": "https://i.ibb.co/V37Qvd4/CREATOR-gd-jpeg-v1-0-using-IJG-JPEG-v80-quality-90.jpg",
+    "name": "Excellent 4 Days & 3 Nights Tour Package at Kathmandu Nepal",
+    "price": 55,
+    "desc": "Excellent Kathmandu tour package in Nepal for 4 days and 3 nights including tax, breakfast, guide sevice."
+  },
+  {
+    "key": 8,
+    "img": "https://i.ibb.co/J7qSwkM/care-2.png",
+    "name": "Nepal Tour Package Kathmandu-Pokhara",
+    "price": 55,
+    "desc": "Exclusive 4 days 3 nights Kathmandu-Pokhara holiday package tour. This exclusive Nepal vacation package deal, half-day tour in Kathmandu."
+  },
+  {
+    "key": 9,
+    "img": "https://i.ibb.co/yXDgQ35/care-1.png",
+    "name": "2 Nights / 3 Days Sylhet Tour Package",
+    "price": 55,
+    "desc": "Package includes hotel accommodation, 3 times foods, pick and drop from hotel, visit Ratargul / Sada Pathor / Two Majar and other tourism place in the city, 3 times tea with evening snacks."
+  }
+]

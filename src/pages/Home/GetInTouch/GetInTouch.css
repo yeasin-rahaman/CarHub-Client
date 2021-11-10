@@ -1,0 +1,14 @@
+.patient-img{
+    color: white;
+
+}
+
+.custom-card{
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card-footer.text-center {
+    background: none;
+    border-top: 0;
+}

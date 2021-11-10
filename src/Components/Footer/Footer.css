@@ -1,0 +1,26 @@
+
+  .footer-container {
+    
+background-color: #63a4ff;
+background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+  }
+  .icon{
+    font-size: 30px;
+  }
+  .icon :hover{
+    color: orange;
+  }
+
+  @media only screen and (max-width:320px) {
+    
+
+}
+
+@media only screen and (min-width: 320px) and (max-width: 400px) {
+	.footer-container{
+      margin-top: 150px;
+    }
+}
