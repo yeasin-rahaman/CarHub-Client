@@ -1,12 +1,12 @@
 <h1>CAR HUB</h1>
 
-  <h2> Click to see  :  <a href="https://the-tour-bee.netlify.app/>Live Site</a></h2>
+  <h2> Click to see  :  <a href="https://car-hub-bd.netlify.app/">Live Site</a> </h2>
   
 <hr>
 <h3>This Website is made with react, bootstrap, and some css and Jason, Firebase</h3>
 
 
-<h2>This website is for car selling l Services</h2>
+<h2>This website is for car selling  Services</h2>
 <br>
 <h2>Functionality</h2>
 <ul> 
