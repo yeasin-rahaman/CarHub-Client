@@ -1,4 +1,4 @@
-<h1>CAR HUB</h1>
+<h1>CAR HUB CLIENT</h1>
 
   <h2> Click to see  :  <a href="https://car-hub-bd.netlify.app/">Live Site</a> </h2>
   
@@ -18,5 +18,4 @@
 <li>React Bootstrap</li>
 <li>Custom CSS</li>
 <li>Javascript function</li>
-
 </ul>
