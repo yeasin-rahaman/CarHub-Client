@@ -4,24 +4,28 @@ import { useForm } from 'react-hook-form';
 import UseAuth from '../../hooks/UseAuth';
 
 
-
 const PlaceOrder = () => {
+
+    const { register, handleSubmit, reset } = useForm();
     const { id } = useParams({});
     const { allContexts } = UseAuth()
     const { user } = allContexts
     const [selected, setSelected] = useState({});
 
 
+
     useEffect(() => {
         fetch(`http://localhost:5000/services/${id}`)
             .then((res) => res.json())
-            .then((data) => setSelected(data));
-    }, [id]);
+            .then((data) => {
+                setSelected(data)
+                reset(data)
 
-
-    const { register, handleSubmit } = useForm();
+            });
+    }, [id, reset]);
 
     const onSubmit = data => {
+
         data.uid = user.uid
         fetch(`http://localhost:5000/addOrders`, {
             method: "POST",
@@ -29,8 +33,12 @@ const PlaceOrder = () => {
             body: JSON.stringify(data),
         })
             .then((res) => res.json())
-            .then((result) => result);
-        alert('order confirmed')
+            .then((result) => {
+                console.log(result)
+                reset(result)
+                alert('order confirmed')
+            });
+
     };
 
 

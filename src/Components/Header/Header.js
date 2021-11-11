@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Nav, Navbar, } from 'react-bootstrap';
 import logo from './../../assets/images/logo.png'
 import { NavLink } from 'react-router-dom';
@@ -9,9 +9,25 @@ const Header = () => {
     const { allContexts, } = UseAuth()
     const { user, logOut } = allContexts
     const { displayName, } = user;
+    // const [isCollapsed, setCollapsed] = useState(null);
+
+    const [isSticky, setSticky] = useState(false);
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                setSticky(true)
+            } else {
+                setSticky(false)
+            }
+        })
+    }, []);
+
+
+
+
     return (
         <div>
-            <Navbar bg="light" expand="lg" className="myHeader">
+            <Navbar bg="light" expand="lg" className={(isSticky) ? "navbar  navbar-expand-lg navbar-dark bg-dark fixed-top" : "navbar  navbar-expand-lg navbar-light color text-dark"}>
                 <Container>
                     <Nav.Link as={NavLink} to="/home"><Navbar.Brand href="#home"> <img src={logo} alt="" /></Navbar.Brand></Nav.Link>
 
@@ -36,7 +52,7 @@ const Header = () => {
                                 <>
 
                                     <Nav.Link className='text-danger' ><h4>{displayName}</h4></Nav.Link>
-                                    <button className='btn btn-primary' onClick={logOut}> log out</button></>
+                                    <button className='btn-danger p-2 text-light   rounded-pill btn-block' onClick={logOut}> log out</button></>
                             )}
 
                         </Nav>

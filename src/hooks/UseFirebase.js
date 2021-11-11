@@ -80,10 +80,11 @@ const UseFirebase = () => {
     // get the currently signed-in user 
 
     useEffect(() => {
+        handleUserInfoRegister(user)
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
-                handleUserInfoRegister(user)
+
             }
             else {
                 setUser({});

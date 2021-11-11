@@ -36,7 +36,7 @@ const Services = () => {
                                     </div>
                                     <div className="card-footer  text-center">
                                         <h5 className="text-warning p-2">Price $: {service.price}</h5>
-                                        <NavLink to={`/placeOrder/${service._id}`} className="btn-grad">BUY</NavLink>
+                                        <NavLink to={`/placeOrder/${service._id}`} className="btn btn-danger btn-lg px-5 text-light   rounded-pill btn-block">BUY</NavLink>
 
                                     </div>
                                 </div>
