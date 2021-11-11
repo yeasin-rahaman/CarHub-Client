@@ -11,7 +11,7 @@ const AllOrders = () => {
     const { allContexts } = UseAuth()
     const { user } = allContexts
     useEffect(() => {
-        fetch(`https://secure-coast-41570.herokuapp.com/allOrders`)
+        fetch(`http://localhost:5000/allOrders`)
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, [user?.uid]);

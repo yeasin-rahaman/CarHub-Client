@@ -9,7 +9,7 @@ import './AddToDatabase.css'
 const AddToDatabase = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('https://secure-coast-41570.herokuapp.com/services', data)
+        axios.post('http://localhost:5000/services', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added to Database successfully')

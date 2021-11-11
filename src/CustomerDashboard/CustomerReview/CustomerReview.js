@@ -10,7 +10,7 @@ const CustomerReview = () => {
     const { user } = allContexts
 
     const onSubmit = (data) => {
-        fetch("https://secure-coast-41570.herokuapp.com/addSReview", {
+        fetch("http://localhost:5000/addSReview", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

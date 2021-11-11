@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react';
 const RemoveServices = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        fetch('https://secure-coast-41570.herokuapp.com/services')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
 
     const handelDelete = id => {
-        const url = `https://secure-coast-41570.herokuapp.com/services/${id}`
+        const url = `http://localhost:5000/services/${id}`
         fetch(url, {
             method: 'DELETE'
 

@@ -13,7 +13,7 @@ const PlaceOrder = () => {
 
 
     useEffect(() => {
-        fetch(`https://secure-coast-41570.herokuapp.com/services/${id}`)
+        fetch(`http://localhost:5000/services/${id}`)
             .then((res) => res.json())
             .then((data) => setSelected(data));
     }, [id]);
@@ -23,7 +23,7 @@ const PlaceOrder = () => {
 
     const onSubmit = data => {
         data.uid = user.uid
-        fetch(`https://secure-coast-41570.herokuapp.com/addOrders`, {
+        fetch(`http://localhost:5000/addOrders`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
