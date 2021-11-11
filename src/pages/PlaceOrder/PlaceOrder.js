@@ -25,7 +25,7 @@ const PlaceOrder = () => {
     }, [id, reset]);
 
     const onSubmit = data => {
-
+        data.userName = user.displayName
         data.email = user.email
         data.status = 'Pending'
 
@@ -80,6 +80,9 @@ const PlaceOrder = () => {
                         </div>
                         <div className="wrap-input1 validate-input" data-validate="Message is required">
                             <input className="input1" type="text" defaultValue={selected.img} placeholder="Name" {...register("img", { required: true, })} />
+                        </div>
+                        <div className="wrap-input1 validate-input" data-validate="Name is required">
+                            <input className="input1" type="text" placeholder="Please Provide your address" {...register("address", { required: true, })} />
                         </div>
 
                         <div className="container-contact1-form-btn">

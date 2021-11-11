@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import UseAuth from '../../hooks/UseAuth';
-import servicesImg from './../../assets/images/services.jpg'
+import allCars from './../../assets/images/getInTouch.gif'
 import './Services.css'
 import spinner from './../../assets/Infinity-1s-200px.svg'
 
@@ -12,11 +12,24 @@ const Services = () => {
     return (
         <div>
             <div className="row">
-                <div className="col-12">
-                    <img className="services-image w-100 img-fluid" src={servicesImg} alt="" />
-                </div>
+                <div className="">
+                    <div className="card  my-5 h-50 text-center my-auto mb-5 border-0" >
+                        <img src={allCars} className="card-img  patient-img" alt="..." />
+                        <div className="card-img-overlay container custom-card ">
+                            <div id="subscribe" className="container d-flex justify-content-center bg-panda-header align-items-center rounded-3 text-center">
+
+                                <div>
+                                    <div className="text-center pt-5 pb-3">
+                                        <h1 className="text-white" style={{ fontSize: "60px" }}>All Cars</h1>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div >
             </div>
-            <div className="d-flex mt-5 justify-content-center "><h1>Packages</h1></div>
             <h2>{services.desc}</h2>
             <div className="container text-black mt-5 mb-5" >
                 <div className="row row-cols-1 row-cols-md-3 g-4">

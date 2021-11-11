@@ -15,7 +15,7 @@ const AllOrders = () => {
         fetch(`http://localhost:5000/allOrders`)
             .then((res) => res.json())
             .then((data) => setOrders(data));
-    }, [user?.uid]);
+    }, [user?.email]);
 
     console.log(orders);
     return (
@@ -60,6 +60,8 @@ const AllOrders = () => {
                         <th className="text-light" scope="col">Image</th>
                         <th className="text-light" scope="col">Service Name</th>
                         <th className="text-light" scope="col">Price</th>
+                        <th className="text-light" scope="col">User</th>
+
                         <th className="text-light" scope="col">Status</th>
                         <th className="text-light" scope="col">Change Status</th>
                     </tr>
@@ -73,6 +75,7 @@ const AllOrders = () => {
                                 <td><img style={{ width: "70px", height: "50px" }} src={order.img} alt="" /></td>
                                 <td>{order.name}</td>
                                 <td>{order.price} $</td>
+                                <td>{order.email} $</td>
                                 <td>{order.status}</td>
                                 <td><button className="btn btn-danger">Approve</button></td>
                             </tr>

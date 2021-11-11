@@ -1,5 +1,5 @@
 import React from 'react';
-import getInTouch from './../../../assets/images/getInTouch.gif'
+import getInTouch from './../../../assets/images/allCars.jpg'
 import './GetInTouch.css'
 
 const GetInTouch = () => {
@@ -10,7 +10,7 @@ const GetInTouch = () => {
                 <h1 style={{ fontSize: "60px" }}>Get in Touch</h1>
             </div>
 
-            <div className="card  my-5 h-50 text-center my-auto mt-5 mb-5" >
+            <div className="card  my-5 h-50 text-center my-auto mt-5 mb-5 border-0" >
                 <img src={getInTouch} className="card-img  patient-img" alt="..." />
                 <div className="card-img-overlay container custom-card ">
                     <div id="subscribe" className="container d-flex justify-content-center bg-panda-header align-items-center rounded-3 text-center">

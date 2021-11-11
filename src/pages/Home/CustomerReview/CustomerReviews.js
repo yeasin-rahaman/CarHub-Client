@@ -22,14 +22,13 @@ const CustomerReviews = () => {
                     reviews?.map(
                         review =>
                             <Carousel.Item key={review._id}>
-
                                 <div className="d-flex justify-content-center text-center review-slider">
                                     <div>
                                         <h3 className="color-white">{review?.name}</h3>
+                                        <br />
                                         <p>  {review?.review}</p>
                                     </div>
                                 </div>
-
                             </Carousel.Item>
                     )
                 }
