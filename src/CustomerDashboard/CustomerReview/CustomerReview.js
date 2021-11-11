@@ -26,7 +26,7 @@ const CustomerReview = () => {
                 <div className='w-50'>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <span className="contact1-form-title">
-                            Order
+                            Review
                         </span>
                         <div className="wrap-input1 validate-input " data-validate="Name is required">
                             <input className="input1 w-50" value={user.displayName} {...register("name")} />

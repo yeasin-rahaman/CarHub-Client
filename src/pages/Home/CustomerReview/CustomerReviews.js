@@ -12,10 +12,11 @@ const CustomerReviews = () => {
             .then((data) => setReviews(data));
     }, []);
     return (
-        <div className="">
+        <div className=" bg-dark text-white pb-5 pt-1">
 
 
-            <div className="d-flex my-5 justify-content-center "><h1>customer reviews</h1></div>
+            <div className="d-flex my-3 justify-content-center "><h1>customer reviews</h1></div>
+            <hr />
             <Carousel>
                 {
                     reviews?.map(
@@ -34,9 +35,6 @@ const CustomerReviews = () => {
                 }
 
             </Carousel>
-
-
-
 
         </div>
     );

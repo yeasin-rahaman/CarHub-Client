@@ -1,4 +1,7 @@
 
-         .custom-cart img{
+.custom-cart img{
            max-height: 200px;
+         }
+.carousel-indicators button {
+           display: none !important;
          }
