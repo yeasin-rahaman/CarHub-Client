@@ -5,9 +5,9 @@ import spinner from '../assets/Infinity-1s-200px.svg'
 
 const PrivateRoute = ({ children, ...rest }) => {
     const { allContexts } = UseAuth();
-    const { user, loading } = allContexts;
+    const { user, isLoading } = allContexts;
 
-    if (loading) {
+    if (isLoading) {
         return (
             <div className=" justify-content-center w-100 d-flex">
                 <img src={spinner} alt="" />

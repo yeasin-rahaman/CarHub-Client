@@ -9,8 +9,9 @@ const HomeServices = () => {
     const homeServices = services.slice(0, 6)
     return (
         <div className="py-5">
-            <div className="d-flex mt-5 justify-content-center "><h1>Packages</h1></div>
-            <h2>{services.desc}</h2>
+            <div className="text-center pt-5 pb-3">
+                <h1 style={{ fontSize: "60px" }}>Our Cars </h1>
+            </div>
             <div className="container text-black mt-5 mb-5" >
                 <div className="row row-cols-1 row-cols-md-3 g-4">
 

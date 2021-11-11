@@ -26,7 +26,10 @@ const PlaceOrder = () => {
 
     const onSubmit = data => {
 
-        data.uid = user.uid
+        data.email = user.email
+        data.status = 'Pending'
+
+
         fetch(`http://localhost:5000/addOrders`, {
             method: "POST",
             headers: { "content-type": "application/json" },

@@ -1,89 +1,126 @@
-import React from 'react';
-import { Col, Form, FormControl, InputGroup, Row } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import UseAuth from './../../hooks/UseAuth';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons'
+import React, { useState } from 'react';
+import UseAuth from '../../hooks/UseAuth';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import google from './../../assets/images/google.png'
-import github from './../../assets/images/github.png'
-
 const Signup = () => {
     const { allContexts } = UseAuth();
-    const { signUp, getEmail, getPassword, getName, error, signInWithGoogle, signInWithGitHub } = allContexts;
+    const { signInWithGoogle, createAccountWithGoogle, setUser, setIsLoading, updateName } = allContexts;
+
+    const [error, setError] = useState("")
+
+    const history = useHistory()
+    const location = useLocation()
+    const url = location.state?.from || "/home"
+
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+
+    const handleGetName = (e) => {
+        console.log(e.target.value);
+        setName(e.target.value)
+    }
+
+    const handleGetEmail = (e) => {
+        console.log(e.target.value);
+        setEmail(e.target.value)
+    }
+
+    const handleGetPassword = (e) => {
+        console.log(e.target.value);
+        setPassword(e.target.value)
+    }
+
+
+
+    const handleRegistration = (e) => {
+        e.preventDefault();
+        createAccountWithGoogle(email, password)
+            .then((res) => {
+                setIsLoading(true)
+                updateName(name)
+                setUser(res.user)
+                history.push(url)
+            })
+            .catch((error) => {
+                setError(error.message)
+
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
+    }
+
+
+
+    const handleGoogleLogin = () => {
+        signInWithGoogle()
+            .then((res) => {
+                setIsLoading(true)
+                setUser(res.user)
+                history.push(url)
+            }
+            )
+            .catch((err) => console.log(err))
+            .finally(() => {
+                setIsLoading(false)
+            })
+    };
+
+
+
 
     return (
 
-        <div className="text-center my-5 custom-body">
-            <h2>Please Sign Up</h2>
-            <p className=" mt-2">Signup with Email & Password</p>
-            <p className="text-danger text-center">{error}</p>
-            <div className="row">
-                <div className="col-md-3 col-10 mx-auto">
-                    <div >
-                        <Row>
-                            <Col className="text-start">
-                                <Form.Label htmlFor="email" visuallyHidden>
-                                    Your User Name
-                                </Form.Label>
-                                <InputGroup className="mb-2">
-                                    <InputGroup.Text>
-                                        <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-                                    </InputGroup.Text>
-                                    <FormControl required onBlur={getName} type="text" autoComplete="current-email" id="email" placeholder="Enter your Name"
-                                    />
-                                </InputGroup>
-                            </Col>
-                        </Row>
-                        <Row>
+        <div className="contact1 add-service d-flex justify-content-center custom-body my-5">
+            <div className="container-contact1 d-flex justify-content-center">
+                <div className=" text-center">
+                    <div className="">
 
-                            <Col className="text-start">
-                                <Form.Label htmlFor="email" visuallyHidden>
-                                    Your Email Address
-                                </Form.Label>
-                                <InputGroup className="mb-2">
-                                    <InputGroup.Text>
-                                        <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
-                                    </InputGroup.Text>
-                                    <FormControl required onBlur={getEmail} type="email" autoComplete="current-email" id="email" placeholder="Enter your email address"
-                                    />
-                                </InputGroup>
-                            </Col>
-                        </Row>
-                        <Row className="mt-2">
-                            <Col className="text-start">
-                                <Form.Label htmlFor="password" visuallyHidden>
-                                    Your Password
-                                </Form.Label>
-                                <InputGroup className="mb-2">
-                                    <InputGroup.Text>
-                                        <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
-                                    </InputGroup.Text>
-                                    <FormControl required onBlur={getPassword} type="password" autoComplete="current-password" id="password" placeholder="Enter your password" />
-                                </InputGroup>
-                            </Col>
-                        </Row>
-                        <button onClick={signUp} className="btn mt-2 btn-grad  w-100">
-                            Login
-                        </button>
+                        <form onSubmit={handleRegistration} className="contact1-form validate-form">
+                            <span className="contact1-form-title">
+                                Register
+                            </span>
+
+                            <p className="text-danger text-center">{error}</p>
+                            <div className="wrap-input1 validate-input">
+
+                                <input className="input1" type="text" onBlur={handleGetName} placeholder="Your Name" />
+                                <span className="shadow-input1"></span>
+                            </div>
+                            <div className="wrap-input1 validate-input" >
+                                <input className="input1" type="email" onBlur={handleGetEmail} placeholder="Your Email" />
+                                <span className="shadow-input1"></span>
+                            </div>
+                            <div className="wrap-input1 validate-input" >
+                                <input className="input1" type="password" onBlur={handleGetPassword} placeholder="Your Password" />
+                                <span className="shadow-input1"></span>
+                            </div>
+
+                            <div className="container-contact1-form-btn">
+                                <button type='submit' className="contact1-form-btn">
+                                    <span>
+                                        Signup
+                                        <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+
+
+                        </form>
+                        <br />
+                        <button className="btn" onClick={handleGoogleLogin}> <img src={google} width="46px" alt="google-icon" /></button>
+
+                        <br />
+                        <p> Have a Account Login ?<Link to="/register">Please Login</Link ></p>
                     </div>
+
+
                 </div>
             </div>
-            <p className="mt-2">
-                <NavLink className="text-decoration-none" to="/login">
-                    Already have a account ? Please Login!
-                </NavLink>
-            </p>
-            <p className="mt-3">Or</p>
-            <p>Sign Up</p>
-            <div>
-                <button onClick={signInWithGoogle} className="btn">
-                    <img src={google} width="46px" alt="google-icon" />
-                </button>
-                <button onClick={signInWithGitHub} className="btn">
-                    <img width="55px" src={github} alt="github-icon" />
-                </button>
-            </div>
         </div>
+
     );
 };
 

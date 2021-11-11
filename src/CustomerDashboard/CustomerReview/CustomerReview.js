@@ -21,13 +21,13 @@ const CustomerReview = () => {
     };
     return (
         <div>
-            <h1>Review</h1>
+            <div className="text-center pt-5 pb-3">
+                <h1 style={{ fontSize: "60px" }}>Review</h1>
+            </div>
             <div className="d-flex justify-content-center">
                 <div className='w-50'>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <span className="contact1-form-title">
-                            Review
-                        </span>
+
                         <div className="wrap-input1 validate-input " data-validate="Name is required">
                             <input className="input1 w-50" value={user.displayName} {...register("name")} />
                         </div>

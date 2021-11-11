@@ -4,10 +4,12 @@ import OurGuide2 from './../../../assets/images/OurGuide(2).jpg'
 import OurGuide3 from './../../../assets/images/OurGuide(3).jpg'
 import OurGuide4 from './../../../assets/images/OurGuide(4).jpg'
 
-const OurGuides = () => {
+const ExpertTeam = () => {
     return (
         <div className='container py-5'>
-            <div className="d-flex my-5 justify-content-center"><h1>Our Guides</h1></div>
+            <div className="text-center py-5">
+                <h1 style={{ fontSize: "60px" }}>Our Expert Team</h1>
+            </div>
             <div className="row row-cols-1 row-cols-md-4 g-4">
                 <div className="col">
                     <div className="card h-100 hover">
@@ -55,4 +57,4 @@ const OurGuides = () => {
     );
 };
 
-export default OurGuides;
+export default ExpertTeam;
