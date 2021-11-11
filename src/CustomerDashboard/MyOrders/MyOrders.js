@@ -8,10 +8,10 @@ const MyOrders = () => {
     const { allContexts } = UseAuth()
     const { user } = allContexts
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrder/${user?.uid}`)
+        fetch(`http://localhost:5000/myOrder/${user?.email}`)
             .then((res) => res.json())
             .then((data) => setOrders(data));
-    }, [user?.uid]);
+    }, [user?.email]);
 
     return (
         <div className="container text-black mt-5 mb-5" >
@@ -20,40 +20,40 @@ const MyOrders = () => {
             </div>
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {
-                    orders.length === 0 ?
-                        <div className=" justify-content-center w-100 d-flex">
-                            <img src={spinner} alt="" />
-                        </div>
-                        :
+                    // orders.length === 0 ?
+                    //     <div className=" justify-content-center w-100 d-flex">
+                    //         <img src={spinner} alt="" />
+                    //     </div>
+                    //     :
 
-                        <table className="table mt-5 table-dark">
-                            <thead>
-                                <tr>
-                                    <th className="text-light text-left" scope="col">Sr No</th>
-                                    <th className="text-light" scope="col">image</th>
-                                    <th className="text-light" scope="col">Service Name</th>
-                                    <th className="text-light" scope="col">Price</th>
-                                    <th className="text-light" scope="col">Status</th>
+                    <table className="table mt-5 table-dark">
+                        <thead>
+                            <tr>
+                                <th className="text-light text-left" scope="col">Sr No</th>
+                                <th className="text-light" scope="col">image</th>
+                                <th className="text-light" scope="col">Service Name</th>
+                                <th className="text-light" scope="col">Price</th>
+                                <th className="text-light" scope="col">Status</th>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    orders.map((order, index) =>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                orders.map((order, index) =>
 
-                                        <tr>
-                                            <th scope="row">{index + 1}</th>
-                                            <td><img style={{ width: "70px", height: "50px" }} src={order.img} alt="" /></td>
-                                            <td>{order.name}</td>
+                                    <tr>
+                                        <th scope="row">{index + 1}</th>
+                                        <td><img style={{ width: "70px", height: "50px" }} src={order.img} alt="" /></td>
+                                        <td>{order.name}</td>
 
-                                            <td>{order.price} $</td>
-                                            <td>{order.status}</td>
+                                        <td>{order.price} $</td>
+                                        <td>{order.status}</td>
 
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
-                        </table>
+                                    </tr>
+                                )
+                            }
+                        </tbody>
+                    </table>
 
                 }
             </div>

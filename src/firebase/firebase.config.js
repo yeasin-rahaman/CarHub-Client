@@ -1,9 +1,9 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyCViA3xkhSRsKn5FeCalkmjAS90Wu2fYwU",
-    authDomain: "health-care-assignment--10.firebaseapp.com",
-    projectId: "health-care-assignment--10",
-    storageBucket: "health-care-assignment--10.appspot.com",
-    messagingSenderId: "919022573431",
-    appId: "1:919022573431:web:f40232f6fbd7f74b96f372"
+    apiKey: "AIzaSyAbNJM4Unb8b09YU1WAoFbMVo96PuHQqFU",
+    authDomain: "carhub-bf0ef.firebaseapp.com",
+    projectId: "carhub-bf0ef",
+    storageBucket: "carhub-bf0ef.appspot.com",
+    messagingSenderId: "505106743349",
+    appId: "1:505106743349:web:d62e3f025a578f302fb17c"
 };
 export default firebaseConfig;
