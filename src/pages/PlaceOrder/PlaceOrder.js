@@ -19,7 +19,7 @@ const PlaceOrder = () => {
             .then((res) => res.json())
             .then((data) => {
                 setSelected(data)
-                reset(data)
+                // reset(data)
 
             });
     }, [id, reset]);
@@ -29,7 +29,6 @@ const PlaceOrder = () => {
         data.email = user.email
         data.status = 'Pending'
 
-
         fetch(`http://localhost:5000/addOrders`, {
             method: "POST",
             headers: { "content-type": "application/json" },
@@ -38,7 +37,7 @@ const PlaceOrder = () => {
             .then((res) => res.json())
             .then((result) => {
                 console.log(result)
-                reset(result)
+                // reset(result)
                 alert('order confirmed')
             });
 
