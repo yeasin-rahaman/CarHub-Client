@@ -20,8 +20,6 @@ const AddToDatabase = () => {
 
     return (
         <div className="add-service">
-
-
             <div className="contact1">
                 <div className="container-contact1">
                     <div className="contact1-pic js-tilt" data-tilt="">
@@ -62,9 +60,6 @@ const AddToDatabase = () => {
                                 </span>
                             </button>
                         </div>
-
-
-
                     </form>
 
                 </div>

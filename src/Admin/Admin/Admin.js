@@ -18,9 +18,9 @@ const Admin = () => {
 
 
 
-                    <li className="nav-link py-3 border-bottom" onClick={() => setActive('all orders')}><i class="fas fa-sort-amount-up-alt"></i><small>All Orders</small> </li>
+                    <li className="nav-link py-3 border-bottom" onClick={() => setActive('all orders')}><i className="fas fa-sort-amount-up-alt"></i><small>All Orders</small> </li>
 
-                    <li className="nav-link py-3 border-bottom" onClick={() => setActive('make admin')}> <i class="fas fa-users-cog"></i> <small>Make Admin</small> </li>
+                    <li className="nav-link py-3 border-bottom" onClick={() => setActive('make admin')}> <i className="fas fa-users-cog"></i> <small>Make Admin</small> </li>
 
 
                     <li className="nav-link py-3 border-bottom" onClick={() => setActive('add service to DB')}> <i className="fa fa-first-order" ></i> <small>Add Service</small></li>

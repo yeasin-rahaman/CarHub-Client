@@ -4,7 +4,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import google from './../../assets/images/google.png'
 const Signup = () => {
     const { allContexts } = UseAuth();
-    const { signInWithGoogle, createAccountWithGoogle, setUser, setIsLoading, updateName } = allContexts;
+    const { signInWithGoogle, createAccountWithGoogle, setUser, setIsLoading, updateName, sendUserInfoToDb } = allContexts;
 
     const [error, setError] = useState("")
 
@@ -57,6 +57,7 @@ const Signup = () => {
     const handleGoogleLogin = () => {
         signInWithGoogle()
             .then((res) => {
+                sendUserInfoToDb(res.user.email)
                 setIsLoading(true)
                 setUser(res.user)
                 history.push(url)

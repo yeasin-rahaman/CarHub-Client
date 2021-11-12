@@ -19,7 +19,7 @@ const PlaceOrder = () => {
             .then((res) => res.json())
             .then((data) => {
                 setSelected(data)
-                // reset(data)
+                reset(data)
 
             });
     }, [id, reset]);
@@ -37,7 +37,7 @@ const PlaceOrder = () => {
             .then((res) => res.json())
             .then((result) => {
                 console.log(result)
-                // reset(result)
+
                 alert('order confirmed')
             });
 

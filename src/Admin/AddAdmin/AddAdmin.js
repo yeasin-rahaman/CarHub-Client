@@ -4,7 +4,15 @@ import { useForm } from "react-hook-form";
 const AddAdmin = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        console.log(data)
+        fetch("http://localhost:5000/makeAdmin", {
+            method: "PUT",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((result) => console.log(result));
+        alert('Added admin successfully!!!!')
+
     };
     return (
         <div className="add-service">
@@ -15,7 +23,7 @@ const AddAdmin = () => {
                             Make Admin
                         </span>
                         <div className="wrap-input1 validate-input " data-validate="Name is required">
-                            <input className="input1 w-100" placeholder="Admin email" {...register("name")} />
+                            <input className="input1 w-100" placeholder="Admin email" {...register("email")} />
                         </div>
 
 

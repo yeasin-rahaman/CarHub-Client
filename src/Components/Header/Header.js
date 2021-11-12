@@ -7,7 +7,7 @@ import './header.css'
 
 const Header = () => {
     const { allContexts, } = UseAuth()
-    const { user, logOut } = allContexts
+    const { user, logOut, isAdmin } = allContexts
     const { displayName, } = user;
     // const [isCollapsed, setCollapsed] = useState(null);
 
@@ -21,8 +21,7 @@ const Header = () => {
             }
         })
     }, []);
-
-
+    console.log(isAdmin)
 
 
     return (
@@ -36,22 +35,37 @@ const Header = () => {
                         <Nav className="ms-auto align-items-center">
                             <Nav.Link as={NavLink} to="/home">Home</Nav.Link>
 
-                            <Nav.Link as={NavLink} to="/about">About</Nav.Link>
 
                             <Nav.Link as={NavLink} to="/services">Services</Nav.Link>
-
                             <Nav.Link as={NavLink} to="/contact">Contact</Nav.Link>
 
-                            <Nav.Link as={NavLink} to="/customerDashboard">Customer Dashboard</Nav.Link>
-                            <Nav.Link as={NavLink} to="/admin">Admin Panel</Nav.Link>
+                            <Nav.Link as={NavLink} to="/about">About</Nav.Link>
+
+
+
+                            {
+                                isAdmin ?
+
+                                    <>
+                                        <Nav.Link as={NavLink} to="/customerDashboard">Customer Dashboard</Nav.Link>
+                                        <Nav.Link as={NavLink} to="/admin">Admin Dashboard</Nav.Link>
+                                    </> :
+
+                                    <Nav.Link as={NavLink} to="/customerDashboard">Customer Dashboard</Nav.Link>
+                            }
 
 
                             {!displayName ? (<><Nav.Link as={NavLink} to="/signup">Sign Up</Nav.Link>
 
                                 <Nav.Link as={NavLink} to="/login">Log in</Nav.Link></>) : (
                                 <>
+                                    {isAdmin ?
+                                        <Nav.Link className='text-danger' ><h4>{displayName} <i className="fas fa-users-cog"></i></h4></Nav.Link>
+                                        :
+                                        <Nav.Link className='text-danger' ><h4>{displayName}</h4></Nav.Link>
+                                    }
 
-                                    <Nav.Link className='text-danger' ><h4>{displayName}</h4></Nav.Link>
+
                                     <button className='btn-danger p-2 text-light   rounded-pill btn-block' onClick={logOut}> log out</button></>
                             )}
 

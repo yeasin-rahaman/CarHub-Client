@@ -15,7 +15,7 @@ const CustomerDashboard = () => {
 
                     <li className="nav-link py-3 border-bottom" onClick={() => setActive('Review')}> <i className="fas fa-vote-yea"></i><small>Review</small> </li>
 
-                    <li className="nav-link py-3 border-bottom" onClick={() => setActive('Payment')}> <i class="far fa-money-bill-alt"></i><small>Payment</small> </li>
+                    <li className="nav-link py-3 border-bottom" onClick={() => setActive('Payment')}> <i className="far fa-money-bill-alt"></i><small>Payment</small> </li>
 
                 </ul>
             </div>

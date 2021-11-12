@@ -13,7 +13,6 @@ const useFirebase = () => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            console.log(user);
             if (user) {
 
                 setUser(user)
@@ -27,18 +26,33 @@ const useFirebase = () => {
 
 
     const signInWithGoogle = () => {
+
         return signInWithPopup(auth, googleProvider)
 
     }
 
 
-    const createAccountWithGoogle = (email, password) => {
 
+    const sendUserInfoToDb = (email) => {
+        fetch("http://localhost:5000/addUserInfo", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ email }),
+        })
+            .then((res) => res.json())
+            .then((result) => console.log(result));
+    };
+
+
+
+    const createAccountWithGoogle = (email, password) => {
+        sendUserInfoToDb(email)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
 
     const loginWithEmailAndPassword = (email, password) => {
+
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -47,7 +61,7 @@ const useFirebase = () => {
         updateProfile(auth.currentUser, {
             displayName: name
         }).then(() => {
-            const newUser = { ...user, displayName: name } // recommend
+            const newUser = { ...user, displayName: name }
             setUser(newUser)
 
             // ...
@@ -66,15 +80,42 @@ const useFirebase = () => {
         });
     }
 
+
+
+
+
+
+    // get admin user 
+
+    const [adminData, setAdminData] = useState([]);
+    const [isAdmin, setIsAdmin] = useState(false);
+    useEffect(() => {
+        fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setAdminData(data)
+                if (data[0]?.role === "admin") {
+                    setIsAdmin(true);
+                } else {
+                    setIsAdmin(false);
+                }
+            });
+    }, [user?.email]);;
+
+
     return {
-        user, setUser,
+        user,
+        setUser,
         signInWithGoogle,
         createAccountWithGoogle,
         loginWithEmailAndPassword,
         isLoading,
         setIsLoading,
         logOut,
-        updateName
+        updateName,
+        sendUserInfoToDb,
+        isAdmin,
+        adminData
 
     }
 }

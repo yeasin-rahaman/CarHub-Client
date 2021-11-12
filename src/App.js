@@ -15,6 +15,7 @@ import Footer from './Components/Footer/Footer';
 import Admin from './Admin/Admin/Admin';
 import CustomerDashboard from './CustomerDashboard/CustomerDashboard';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import AdminPrivateRoute from './AdminPrivateRoute/AdminPrivateRoute';
 
 
 
@@ -46,9 +47,11 @@ function App() {
             <PrivateRoute path="/customerDashboard">
               <CustomerDashboard></CustomerDashboard>
             </PrivateRoute>
-            <PrivateRoute exact path="/admin">
+
+            <AdminPrivateRoute exact path="/admin">
               <Admin></Admin>
-            </PrivateRoute>
+
+            </AdminPrivateRoute>
             <Route exact path="/services">
               <Services></Services>
             </Route>
