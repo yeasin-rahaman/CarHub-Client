@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import UseAuth from '../../hooks/UseAuth';
 import spinner from './../../assets/Infinity-1s-200px.svg'
+import './AllOrder.css'
 
 
 
@@ -20,38 +21,39 @@ const AllOrders = () => {
     console.log(orders);
     return (
 
-        <div className="p-2">
+        <div className="p-2 all-order-container">
             <h1 className=" mb-5 text-center mt-5 ">Total <span className="text-danger">{orders.length}</span> Order  is Palaced....!!!!!</h1>
 
-            <table className="table table-dark">
-                <thead>
-                    <tr>
-                        <th className="text-light text-left" scope="col">Sr No</th>
-                        <th className="text-light" scope="col">Image</th>
-                        <th className="text-light" scope="col">Service Name</th>
-                        <th className="text-light" scope="col">Price</th>
-                        <th className="text-light" scope="col">User</th>
+            <table className="table table-dark" style={{ width: "100%" }}>
+                <thead  >
+                    <tr className="bg-dark text-white mb-3 p-2" style={{ border: "1px solid red" }}>
 
-                        <th className="text-light" scope="col">Status</th>
-                        <th className="text-light" scope="col">Change Status</th>
+                        <th >Number</th>
+                        <th >Product</th>
+                        <th >Image</th>
+                        <th >Price</th>
+                        <th >User Email</th>
+                        <th >User Address</th>
+                        <th >Status</th>
+                        <th >Update</th>
+
                     </tr>
                 </thead>
-                <tbody>
-                    {
-                        orders.map((order, index) =>
+                {orders?.map((order, index) => (
+                    <tbody>
+                        <tr role="row" style={{ border: "2px solid gray" }} >
+                            <th scope="row">{index + 1}</th>
+                            <td>{order.name}</td>
+                            <td><img style={{ width: "70px", height: "50px" }} src={order.img} alt="" /></td>
+                            <td>{order.price}</td>
+                            <td>{order.email}</td>
+                            <td>{order.address}</td>
+                            <td>{order.status}</td>
+                            <td> <button className="btn btn-danger">Cancel Order</button></td>
+                        </tr>
+                    </tbody>
 
-                            <tr>
-                                <th scope="row">{index + 1}</th>
-                                <td><img style={{ width: "70px", height: "50px" }} src={order.img} alt="" /></td>
-                                <td>{order.name}</td>
-                                <td>{order.price} $</td>
-                                <td>{order.email} $</td>
-                                <td>{order.status}</td>
-                                <td><button className="btn btn-danger">Approve</button></td>
-                            </tr>
-                        )
-                    }
-                </tbody>
+                ))}
             </table>
         </div>
 

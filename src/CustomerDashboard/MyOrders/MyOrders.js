@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import UseAuth from '../../hooks/UseAuth';
-
+import './MyOrder.css'
 const MyOrders = () => {
     const [orders, setOrders] = useState([])
     const { allContexts } = UseAuth()
@@ -11,47 +11,61 @@ const MyOrders = () => {
             .then((data) => setOrders(data));
     }, [user?.email]);
 
+
+
+    const handleOrderCancel = id => {
+        const url = `http://localhost:5000/cancelOrder/${id}`;
+        fetch(url, {
+            method: 'DELETE'
+
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.deletedCount) {
+                    const remaining = orders?.filter(order => order._id !== id);
+                    setOrders(remaining);
+                    alert('Remove Your Order Successfully')
+
+                }
+            })
+    }
+
     return (
-        <div className="container text-black mb-5" >
+        < div className="container my-order-container" >
             <div className="text-center pb-3">
                 <h1 className="mb-5 text-center pt-5">Your Ordered <span className="text-danger">{orders.length}</span>  Products....!!!!!</h1>
-
             </div>
-            <div className="row row-cols-1 row-cols-md-3 g-4">
 
-
-
-                <table className="table mt-5 table-dark">
-                    <thead>
-                        <tr>
-                            <th className="text-light text-left" scope="col">Sr No</th>
-                            <th className="text-light" scope="col">image</th>
-                            <th className="text-light" scope="col">Service Name</th>
-                            <th className="text-light" scope="col">Price</th>
-                            <th className="text-light" scope="col">Status</th>
-
-                        </tr>
-                    </thead>
+            <table className="table table-dark" style={{ width: "100%" }}>
+                <thead  >
+                    <tr className="bg-dark text-white mb-3 p-2" style={{ border: "1px solid red" }}>
+                        <th  >Product</th>
+                        <th >Image</th>
+                        <th >Price</th>
+                        <th >Status</th>
+                        <th >Action</th>
+                    </tr>
+                </thead>
+                {orders?.map((order) => (
                     <tbody>
-                        {
-                            orders.map((order, index) =>
-                                <tr key={order._id}>
-                                    <th scope="row">{index + 1}</th>
-                                    <td><img style={{ width: "70px", height: "50px" }} src={order.img} alt="" /></td>
-                                    <td>{order.name}</td>
-
-                                    <td>{order.price} $</td>
-                                    <td>{order.status}</td>
-
-                                </tr>
-                            )
-                        }
+                        <tr role="row" style={{ border: "2px solid gray" }} >
+                            <td>{order.name}</td>
+                            <td><img style={{ width: "70px", height: "50px" }} src={order.img} alt="" /></td>
+                            <td>{order.price}</td>
+                            <td>{order.status}</td>
+                            <td> <button
+                                className="btn btn-danger"
+                                onClick={() => handleOrderCancel(order._id)}
+                            >
+                                Cancel Order
+                            </button></td>
+                        </tr>
                     </tbody>
-                </table>
 
-
-            </div>
-        </div>
+                ))}
+            </table>
+        </div >
 
     );
 };

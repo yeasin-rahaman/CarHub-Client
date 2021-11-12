@@ -8,7 +8,7 @@ const AdminPrivateRoute = ({ children, ...rest }) => {
     const { allContexts } = UseAuth();
     const { isAdmin, adminData } = allContexts;
 
-    if (!adminData) {
+    if (!isAdmin) {
         return (
             <div className=" justify-content-center w-100 d-flex">
                 <img src={spinner} alt="" />
