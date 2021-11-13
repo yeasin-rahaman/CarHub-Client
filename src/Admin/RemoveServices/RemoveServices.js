@@ -11,7 +11,7 @@ const RemoveServices = () => {
     }, [])
 
     const handelDelete = id => {
-        const proceed = window.confirm('Are you sure you want to delete this service')
+        const proceed = window.confirm('Are you sure you want to DELETE this service')
         if (proceed) {
             const url = `https://secure-coast-41570.herokuapp.com/services/${id}`
             fetch(url, {
