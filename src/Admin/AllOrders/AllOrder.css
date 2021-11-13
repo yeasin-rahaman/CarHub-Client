@@ -48,5 +48,6 @@
 		.all-order-container td:nth-of-type(4):before { content: "User Email"; }
 		.all-order-container td:nth-of-type(5):before { content: "User Address"; }
 		.all-order-container td:nth-of-type(6):before { content: "Status"; }
+		.all-order-container td:nth-of-type(7):before { content: "Update"; }
 
     }

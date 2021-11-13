@@ -55,6 +55,7 @@ const AllOrders = () => {
                         <th >User Email</th>
                         <th >User Address</th>
                         <th >Status</th>
+                        <th >Update</th>
                     </tr>
                 </thead>
                 {orders?.map((order, index) => (
@@ -74,9 +75,10 @@ const AllOrders = () => {
                                         <option defaultValue="pending">Delivered</option>
                                         <option defaultValue="pending">Cancelled</option>
                                     </select>
-                                    <button className="btn btn-danger" onClick={() => handleUpdate(order._id)}>update</button>
                                 </div>
-
+                            </td>
+                            <td>
+                                <button className="btn btn-danger" onClick={() => handleUpdate(order._id)}>update</button>
                             </td>
                         </tr>
                     </tbody>
