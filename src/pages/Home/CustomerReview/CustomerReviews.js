@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
-import StarRatings from 'react-star-ratings';
 import Rating from 'react-rating';
+
 
 import './CustomerReviews.css'
 
@@ -33,7 +33,7 @@ const CustomerReviews = () => {
                                         <br />
                                         <p>  {review?.review}</p>
 
-                                        <Rating
+                                        <Rating className="star"
                                             initialRating={Number(review.rating)}
                                             emptySymbol="far fa-star icon-color"
                                             fullSymbol="fas fa-star icon-color"
