@@ -31,7 +31,7 @@ const CustomerReviews = () => {
                                         <br />
                                         <p>  {review?.review}</p>
 
-                                        <StarRatings className="ratinggg"
+                                        <StarRatings
                                             rating={Number(review?.rating)}
                                             starDimension="40px"
                                             starSpacing="15px"
