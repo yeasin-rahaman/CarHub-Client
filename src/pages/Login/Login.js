@@ -102,7 +102,7 @@ const Login = () => {
                         <button className="btn" onClick={handleGoogleLogin}> <img src={google} width="46px" alt="google-icon" /></button>
 
                         <br />
-                        <p> New User ?<Link to="/register">Please register</Link ></p>
+                        <p> New User ?<Link to="/signup">Please register</Link ></p>
                     </div>
 
 
