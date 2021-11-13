@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import StarRatings from 'react-star-ratings';
+import Rating from 'react-rating';
+
 import './CustomerReviews.css'
 
 
@@ -31,11 +33,11 @@ const CustomerReviews = () => {
                                         <br />
                                         <p>  {review?.review}</p>
 
-                                        <StarRatings
-                                            rating={Number(review?.rating)}
-                                            starDimension="40px"
-                                            starSpacing="15px"
-                                        />
+                                        <Rating
+                                            initialRating={Number(review.rating)}
+                                            emptySymbol="far fa-star icon-color"
+                                            fullSymbol="fas fa-star icon-color"
+                                            readonly></Rating>
                                     </div>
                                 </div>
                             </Carousel.Item>
