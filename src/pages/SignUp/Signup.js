@@ -18,17 +18,17 @@ const Signup = () => {
 
 
     const handleGetName = (e) => {
-        console.log(e.target.value);
+
         setName(e.target.value)
     }
 
     const handleGetEmail = (e) => {
-        console.log(e.target.value);
+
         setEmail(e.target.value)
     }
 
     const handleGetPassword = (e) => {
-        console.log(e.target.value);
+
         setPassword(e.target.value)
     }
 

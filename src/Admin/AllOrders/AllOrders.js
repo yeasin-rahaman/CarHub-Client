@@ -11,8 +11,7 @@ const AllOrders = () => {
     const [orders, setOrders] = useState([])
     const { allContexts } = UseAuth()
 
-    const { register, handleSubmit } = useForm();
-    const [orderId, setOrderId] = useState("");
+    const [status, setStatus] = useState('')
     const { user } = allContexts
     useEffect(() => {
         fetch(`http://localhost:5000/allOrders`)
@@ -21,32 +20,30 @@ const AllOrders = () => {
     }, [user?.email]);
 
 
-    const handleOrderId = (id) => {
-        setOrderId(id);
-        console.log(id);
-    };
-
-    const onSubmit = (data) => {
-        console.log(data, orderId);
-        fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
+    const handleUpdate = (id) => {
+        fetch(`http://localhost:5000/statusUpdate/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
-            body: JSON.stringify(data),
+            body: JSON.stringify({ status }),
         })
             .then((res) => res.json())
             .then((result) => console.log(result));
-        console.log(data)
-    };
+        alert('update')
+    }
 
-
+    const handleSelectValue = (e) => {
+        setStatus(e.target.value)
+    }
 
 
 
     console.log(orders);
     return (
 
-        <div className="p-2 all-order-container">
-            <h1 className=" mb-5 text-center mt-5 ">Total <span className="text-danger">{orders.length}</span> Order  is Palaced....!!!!!</h1>
+        < div className="container all-order-container" >
+            <div className="text-center pb-3">
+                <h1 className="mb-5 text-center pt-5">Your Ordered <span className="text-danger">{orders.length}</span>  Products....!!!!!</h1>
+            </div>
 
             <table className="table table-dark" style={{ width: "100%" }}>
                 <thead  >
@@ -59,8 +56,6 @@ const AllOrders = () => {
                         <th >User Email</th>
                         <th >User Address</th>
                         <th >Status</th>
-
-
                     </tr>
                 </thead>
                 {orders?.map((order, index) => (
@@ -72,24 +67,22 @@ const AllOrders = () => {
                             <td>{order.price}</td>
                             <td>{order.email}</td>
                             <td>{order.address}</td>
-                            <td> <form onSubmit={handleSubmit(onSubmit)}>
-                                <select
-                                    onClick={() => handleOrderId(order?._id)}
-                                    {...register("status")}
-                                >
-                                    <option value={order?.status}>{order?.status}</option>
-                                    <option value="approve">approve</option>
-                                    <option value="done">Done</option>
+                            <td> <div >
+                                <select onChange={handleSelectValue} className="pending p-2 ">
+                                    <option defaultValue={order.status}>{order.status}</option>
+                                    <option defaultValue="approved">approved</option>
+                                    <option defaultValue="pending">Delivered</option>
+                                    <option defaultValue="pending">Cancelled</option>
                                 </select>
-                                <input className="btn btn-danger" type="submit" />
-                            </form></td>
-
+                            </div>
+                                <button className="btn btn-danger" onClick={() => handleUpdate(order._id)}>update</button>
+                            </td>
                         </tr>
                     </tbody>
 
                 ))}
             </table>
-        </div>
+        </div >
 
 
 

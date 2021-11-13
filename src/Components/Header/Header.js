@@ -21,7 +21,6 @@ const Header = () => {
             }
         })
     }, []);
-    console.log(isAdmin)
 
 
     return (
