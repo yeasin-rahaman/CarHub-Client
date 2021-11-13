@@ -23,6 +23,7 @@
     "react-router-dom": "^5.3.0",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "^4.0.3",
+    "react-star-ratings": "^2.3.0",
     "sweetalert-react": "^0.4.11",
     "swiper": "^7.2.0",
     "typewriter-effect": "^2.18.2",

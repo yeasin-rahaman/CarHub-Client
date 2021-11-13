@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
+import StarRatings from 'react-star-ratings';
 import './CustomerReviews.css'
 
 
 const CustomerReviews = () => {
 
     const [reviews, setReviews] = useState([])
+
+    console.log(reviews)
     useEffect(() => {
         fetch(`https://secure-coast-41570.herokuapp.com/review`)
             .then((res) => res.json())
@@ -27,6 +30,12 @@ const CustomerReviews = () => {
                                         <h3 className="color-white">{review?.name}</h3>
                                         <br />
                                         <p>  {review?.review}</p>
+
+                                        <StarRatings className="ratinggg"
+                                            rating={Number(review?.rating)}
+                                            starDimension="40px"
+                                            starSpacing="15px"
+                                        />
                                     </div>
                                 </div>
                             </Carousel.Item>
