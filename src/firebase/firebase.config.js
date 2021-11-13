@@ -1,9 +1,9 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyAbNJM4Unb8b09YU1WAoFbMVo96PuHQqFU",
-    authDomain: "carhub-bf0ef.firebaseapp.com",
-    projectId: "carhub-bf0ef",
-    storageBucket: "carhub-bf0ef.appspot.com",
-    messagingSenderId: "505106743349",
-    appId: "1:505106743349:web:d62e3f025a578f302fb17c"
+    apiKey: process.env.REACT_APP_FIREBACE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBACE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBACE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBACE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBACE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBACE_APP_ID
 };
 export default firebaseConfig;
