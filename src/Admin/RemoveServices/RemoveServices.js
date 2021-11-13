@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 
 const RemoveServices = () => {
+
     const [services, setServices] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/services')
@@ -10,23 +11,25 @@ const RemoveServices = () => {
     }, [])
 
     const handelDelete = id => {
-        const url = `http://localhost:5000/services/${id}`
-        fetch(url, {
-            method: 'DELETE'
-
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.deletedCount) {
-                    const remaining = services?.filter(service => service._id !== id);
-                    setServices(remaining);
-                    alert('Remove From Database Successfully')
-
-                }
+        const proceed = window.confirm('Are you sure you want to delete this service')
+        if (proceed) {
+            const url = `http://localhost:5000/services/${id}`
+            fetch(url, {
+                method: 'DELETE'
 
             })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.deletedCount) {
+                        const remaining = services?.filter(service => service._id !== id);
+                        setServices(remaining);
+                        alert('Remove From Database Successfully')
 
+                    }
+
+                })
+        }
     }
 
 

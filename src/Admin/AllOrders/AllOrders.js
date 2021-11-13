@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
 import UseAuth from '../../hooks/UseAuth';
-import spinner from './../../assets/Infinity-1s-200px.svg'
 import './AllOrder.css'
 
 
@@ -40,7 +38,7 @@ const AllOrders = () => {
                     </tr>
                 </thead>
                 {orders?.map((order, index) => (
-                    <tbody>
+                    <tbody key={order._id}>
                         <tr role="row" style={{ border: "2px solid gray" }} >
                             <th scope="row">{index + 1}</th>
                             <td>{order.name}</td>

@@ -14,21 +14,24 @@ const MyOrders = () => {
 
 
     const handleOrderCancel = id => {
-        const url = `http://localhost:5000/cancelOrder/${id}`;
-        fetch(url, {
-            method: 'DELETE'
+        const proceed = window.confirm('Are you sure you want to Cancel this Order')
+        if (proceed) {
+            const url = `http://localhost:5000/cancelOrder/${id}`;
+            fetch(url, {
+                method: 'DELETE'
 
-        })
-            .then(res => res.json())
-            .then(data => {
-
-                if (data.deletedCount) {
-                    const remaining = orders?.filter(order => order._id !== id);
-                    setOrders(remaining);
-                    alert('Remove Your Order Successfully')
-
-                }
             })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.deletedCount) {
+                        const remaining = orders?.filter(order => order._id !== id);
+                        setOrders(remaining);
+                        alert('Remove Your Order Successfully')
+
+                    }
+                })
+        }
     }
 
     return (
