@@ -66,15 +66,17 @@ const AllOrders = () => {
                             <td>{order.price}</td>
                             <td>{order.email}</td>
                             <td>{order.address}</td>
-                            <td> <div >
-                                <select onChange={handleSelectValue} className="pending p-2 ">
-                                    <option defaultValue={order.status}>{order.status}</option>
-                                    <option defaultValue="approved">approved</option>
-                                    <option defaultValue="pending">Delivered</option>
-                                    <option defaultValue="pending">Cancelled</option>
-                                </select>
-                            </div>
-                                <button className="btn btn-danger" onClick={() => handleUpdate(order._id)}>update</button>
+                            <td>
+                                <div >
+                                    <select onChange={handleSelectValue} className="pending p-2 ">
+                                        <option defaultValue={order.status}>{order.status}</option>
+                                        <option defaultValue="approved">approved</option>
+                                        <option defaultValue="pending">Delivered</option>
+                                        <option defaultValue="pending">Cancelled</option>
+                                    </select>
+                                    <button className="btn btn-danger" onClick={() => handleUpdate(order._id)}>update</button>
+                                </div>
+
                             </td>
                         </tr>
                     </tbody>
