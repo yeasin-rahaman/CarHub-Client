@@ -34,7 +34,7 @@ const MyOrders = () => {
     }
 
     return (
-        < div className="container my-order-container" >
+        < div className="container my-order-container custom-body" >
             <div className="text-center pb-3">
                 <h1 className="mb-5 text-center pt-5">Your Ordered <span className="text-danger">{orders.length}</span>  Products....!!!!!</h1>
             </div>
