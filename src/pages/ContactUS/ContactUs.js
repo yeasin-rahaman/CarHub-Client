@@ -11,7 +11,9 @@ const ContactUs = () => {
         <div>
             <section id="contact ">
                 <div className="container custom-body align-items-center  mt-5">
-                    <div className="d-flex my-5 justify-content-center"><h1>Contact Us</h1></div>
+                    <div className="text-center pt-5 pb-3">
+                        <h1 style={{ fontSize: "60px" }}>Contact Us</h1>
+                    </div>
 
 
                     <div className="row mt-5 align-items-center">

@@ -7,7 +7,7 @@ const CustomerReviews = () => {
 
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/review`)
+        fetch(`https://secure-coast-41570.herokuapp.com/review`)
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);
@@ -23,7 +23,7 @@ const CustomerReviews = () => {
                         review =>
                             <Carousel.Item key={review._id}>
                                 <div className="d-flex justify-content-center text-center review-slider">
-                                    <div>
+                                    <div className="w-50">
                                         <h3 className="color-white">{review?.name}</h3>
                                         <br />
                                         <p>  {review?.review}</p>

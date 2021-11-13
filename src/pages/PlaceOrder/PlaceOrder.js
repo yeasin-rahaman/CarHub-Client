@@ -15,7 +15,7 @@ const PlaceOrder = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://secure-coast-41570.herokuapp.com/services/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setSelected(data)
@@ -29,7 +29,7 @@ const PlaceOrder = () => {
         data.email = user.email
         data.status = 'Pending'
 
-        fetch(`http://localhost:5000/addOrders`, {
+        fetch(`https://secure-coast-41570.herokuapp.com/addOrders`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

@@ -16,7 +16,7 @@ const ExpertTeam = () => {
                         <img src={OurGuide1} className="card-img-top img-fluid" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">BEATRICE PRIOR</h5>
-                            <p className="card-text">Tour Guide</p>
+                            <p className="card-text">Engin Expert</p>
                         </div>
 
                     </div>
@@ -26,7 +26,7 @@ const ExpertTeam = () => {
                         <img src={OurGuide2} className="card-img-top img-fluid" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">EDWARD DUGHLAS</h5>
-                            <p className="card-text">Tour Planer</p>
+                            <p className="card-text">Design Expert</p>
                         </div>
 
                     </div>
@@ -36,7 +36,7 @@ const ExpertTeam = () => {
                         <img src={OurGuide3} className="card-img-top img-fluid img-fluid" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">PETER PARKER</h5>
-                            <p className="card-text">Tour Expert</p>
+                            <p className="card-text">Technical Expert</p>
                         </div>
 
                     </div>
@@ -46,7 +46,7 @@ const ExpertTeam = () => {
                         <img src={OurGuide4} className="card-img-top img-fluid img-fluid" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">LIZA THOMAS</h5>
-                            <p className="card-text">Tour Guide</p>
+                            <p className="card-text">Business Expert</p>
                         </div>
 
                     </div>
